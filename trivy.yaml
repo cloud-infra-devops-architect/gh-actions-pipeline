@@ -1,0 +1,17 @@
+scan:
+  scanners:
+    - misconfig
+
+severity:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+  - LOW
+  - UNKNOWN
+
+format: table
+
+ignore-unfixed: true
+
+misconfiguration:
+  exit-code: 1

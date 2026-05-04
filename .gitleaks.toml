@@ -1,0 +1,20 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Ignore example/placeholder values in Terraform files"
+paths = [
+  '''examples/main\.tf''',
+  '''README\.md''',
+]
+
+[[allowlists]]
+description = "Ignore placeholder email addresses"
+regexes = [
+  '''[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}''',
+]
+paths = [
+  '''examples/main\.tf''',
+  '''variables\.tf''',
+  '''README\.md''',
+]
