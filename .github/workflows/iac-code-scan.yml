@@ -337,7 +337,7 @@ jobs:
           echo -e "${BOLD}${CYAN}║  Tool                 ║  Status                  ║${RESET}"
           echo -e "${BOLD}${CYAN}╠═══════════════════════╬══════════════════════════╣${RESET}"
           row() { local label="$1" result="$2" icon color; icon=$(status_icon "$result"); color=$(status_color "$result"); printf "${BOLD}${CYAN}║${RESET}  %-21s${BOLD}${CYAN}║${RESET}  %s${BOLD}%s${RESET}%-*s${BOLD}${CYAN}║${RESET}\n" "$label" "$color" "$icon" $((24 - ${#icon})) ""; }
-          row "Pre-commit Hooks"  "$precommit"
+          row "Pre-Push Hooks"    "$precommit"
           row "Infracost"         "$infracost"
           row "Checkov"           "$checkov"
           row "Trivy"             "$trivy"
