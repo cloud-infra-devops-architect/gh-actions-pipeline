@@ -209,7 +209,6 @@ jobs:
           severity: "CRITICAL,HIGH,MEDIUM,LOW,UNKNOWN"
           exit-code: "1"
           trivy-config: trivy.yaml
-          skip-check-update: true
 
       - name: Fail on Trivy misconfiguration findings
         if: failure()
