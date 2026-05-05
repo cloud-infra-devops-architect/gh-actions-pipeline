@@ -61,7 +61,8 @@ jobs:
 
       - name: Install Trivy
         run: |
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.69.3
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.70.0
+          mkdir -p ~/.cache/trivy/policy/content/policies/cloud/policies/cloudstack
           mkdir -p ~/.cache/trivy/policy/content/policies/docker
 
       - name: Install gitleaks
@@ -75,6 +76,7 @@ jobs:
         env:
           SKIP: no-commit-to-branch
           TF_CLI_ARGS_init: "-backend=false"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   check-required-files:
     runs-on: ubuntu-latest
@@ -209,7 +211,7 @@ jobs:
           severity: "CRITICAL,HIGH,MEDIUM,LOW,UNKNOWN"
           exit-code: "1"
           trivy-config: trivy.yaml
-          skip-check-update: true
+          version: "v0.70.0"
 
       - name: Fail on Trivy misconfiguration findings
         if: failure()
