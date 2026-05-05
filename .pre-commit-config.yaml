@@ -36,3 +36,5 @@ repos:
       - id: terraform_trivy
         args:
           - "--args=--config=__GIT_WORKING_DIR__/trivy.yaml"
+          - "--args=--skip-check-update"
+          - "--args=--skip-version-check"
