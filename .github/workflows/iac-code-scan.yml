@@ -76,6 +76,7 @@ jobs:
         env:
           SKIP: no-commit-to-branch
           TF_CLI_ARGS_init: "-backend=false"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   check-required-files:
     runs-on: ubuntu-latest
